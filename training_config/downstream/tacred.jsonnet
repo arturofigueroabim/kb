@@ -66,14 +66,14 @@
     "train_data_path": "/home/matthewp/data/tacred/train.json",
     "validation_data_path": "/home/matthewp/data/tacred/dev.json",
     "trainer": {
-        "cuda_device": 0,
+        "cuda_device": -1,
         "gradient_accumulation_batch_size": 32,
         "learning_rate_scheduler": {
             "type": "slanted_triangular",
-            "num_epochs": 3,
+            "num_epochs": 1,
             "num_steps_per_epoch": 2128.875
         },
-        "num_epochs": 3,
+        "num_epochs": 1,
         "num_serialized_models_to_keep": 1,
         "optimizer": {
             "type": "bert_adam",

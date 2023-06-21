@@ -1,42 +1,18 @@
 {
     "dataset_reader": {
-        "type": "wic",
-        "tokenizer_and_candidate_generator": {
-            "type": "bert_tokenizer_and_candidate_generator",
-            "bert_model_type": "bert-base-uncased",
-            "do_lower_case": true,
-            "entity_candidate_generators": {
-                "wiki": {
-                    "type": "wiki"
-                },
-                "wordnet": {
-                    "type": "wordnet_mention_generator",
-                    "entity_file": "https://allennlp.s3-us-west-2.amazonaws.com/knowbert/wordnet/entities.jsonl"
-                }
-            },
-            "entity_indexers": {
-                "wiki": {
-                    "type": "characters_tokenizer",
-                    "namespace": "entity_wiki",
-                    "tokenizer": {
-                        "type": "word",
-                        "word_splitter": {
-                            "type": "just_spaces"
-                        }
-                    }
-                },
-                "wordnet": {
-                    "type": "characters_tokenizer",
-                    "namespace": "entity_wordnet",
-                    "tokenizer": {
-                        "type": "word",
-                        "word_splitter": {
-                            "type": "just_spaces"
-                        }
-                    }
-                }
+        "type": "text_classification_json",
+        "token_indexers": {
+            "tokens": {
+                "type": "single_id"
             }
-        }
+        },
+        "tokenizer": {
+            "type": "word"
+        },
+        "segment_sentences": false,
+        "max_sequence_length": 512,
+        "skip_label_indexing": false,
+        "lazy": false
     },
     "iterator": {
         "iterator": {
@@ -56,11 +32,11 @@
         "metric_a": {
             "type": "categorical_accuracy"
         },
-        "num_labels": 2,
+        ": 2,
         "task": "classification"
     },
-    "train_data_path": "../../data/df_kb_train.csv",
-    "validation_data_path": "../../data/df_kb_validation.csv",
+    "train_data_path": "/Users/arturofigueroa/PycharmProjects/kb/data/df_kb_train.jsonl",
+    "validation_data_path": "/Users/arturofigueroa/PycharmProjects/kb/data/df_kb_validation.jsonl",
     "trainer": {
         "cuda_device": -1,
         "gradient_accumulation_batch_size": 32,
