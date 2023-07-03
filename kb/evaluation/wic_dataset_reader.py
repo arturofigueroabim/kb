@@ -23,10 +23,10 @@ class WicDatasetReader(DatasetReader):
     def _read(self, file_path: str) -> Iterable[Instance]:
         """Creates examples for the training and dev sets."""
 
-        with open(cached_path(file_path + '.gold.txt'), 'r') as f:
+        with open(cached_path(file_path + '.gold.txt'), 'r', encoding='utf-8') as f:
             labels = f.read().split()
 
-        with open(cached_path(file_path + '.data.txt'), 'r') as f:
+        with open(cached_path(file_path + '.data.txt'), 'r', encoding='utf-8') as f:
             sentences = f.read().splitlines()
             assert len(labels) == len(sentences), f'The length of the labels and sentences must match. ' \
                 f'Got {len(labels)} and {len(sentences)}.'

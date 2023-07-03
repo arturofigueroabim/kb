@@ -4,7 +4,6 @@ pytest==6.2.2
 nltk==3.5
 ipython==7.16.1
 spacy==2.0.18
-torch==1.4.0
 Flask
 waitress
 ujson

@@ -35,7 +35,7 @@ def prior_entity_candidates(candidates_file: str,
     duplicate_mentions_cnt = 0
     clear_conflict_winner = 0  # both higher absolute frequency and longer cand list
     not_clear_conflict_winner = 0  # higher absolute freq but shorter cand list
-    with open(candidates_file) as fin:
+    with open(candidates_file, 'r', encoding='utf-8') as fin:
 
         for i, line in enumerate(fin):
 

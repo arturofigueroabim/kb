@@ -1,6 +1,6 @@
 {
     "dataset_reader": {
-        "type": "wic",
+        "type": "arg_classification_reader",
         "tokenizer_and_candidate_generator": {
             "type": "bert_tokenizer_and_candidate_generator",
             "bert_model_type": "bert-base-uncased",
@@ -59,8 +59,8 @@
         "num_labels": 2,
         "task": "classification"
     },
-    "train_data_path": "~\\MasterThesis\\kb\\data\\train\\train",
-    "validation_data_path": "~\\MasterThesis\\kb\\data\\test\\test",
+    "train_data_path": "~\\MasterThesis\\kb\\data\\train_adu\\train",
+    "validation_data_path": "~\\MasterThesis\\kb\\data\\test_adu\\test",
     "trainer": {
         "cuda_device": -1,
         "gradient_accumulation_batch_size": 32,

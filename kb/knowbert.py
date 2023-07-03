@@ -885,6 +885,7 @@ class KnowBert(BertPretrainedMetricsLoss):
 
         mask = tokens['tokens'] > 0
         attention_mask = extend_attention_mask_for_bert(mask, get_dtype_for_module(self))
+        segment_ids = segment_ids.long()
         contextual_embeddings = self.pretrained_bert.bert.embeddings(tokens['tokens'], segment_ids)
 
         output = {}
